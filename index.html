@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-repeat: no-repeat;
+            transition: background-image 1s ease-in-out, border-color 1s ease-in-out ;
+            border: 10px solid;       
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const imagearray = [
+            'blue.jpeg', 'olive.png', 'graphite.jpeg','crimson.jpeg',
+        ];
+        const bordercolors = [
+         '#3458eb', '#6d8f17','#4e5246','#9c0e06',
+        ]
+        let i = 0;
+
+        const bimage = imagearray.map(a => `url(${a})`);
+
+        const change = () => {
+            document.body.style.backgroundImage = bimage[i];
+            document.body.style.borderColor = bordercolors[i];
+            i = (i + 1) % imagearray.length;
+        }
+
+        setInterval(change, 1000);
+    </script>
+</body>
+</html>
